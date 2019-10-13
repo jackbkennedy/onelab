@@ -11,6 +11,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/jackbkennedy/onelab",
+    download_url = 'https://github.com/jackbkennedy/onelab/releases/tag/v0.1',
     packages=setuptools.find_packages(),
     license="GPL",
     classifiers=[
