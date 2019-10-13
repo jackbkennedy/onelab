@@ -4,8 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="onelab-jackbkennedy",
-    version="0.0.1",
+    name="onelab",
     author="Jack Kennedy",
     author_email="jackbkennedy@gmail.com",
     description="A python package to use gmsh and ONELAB via their original python APIs",
