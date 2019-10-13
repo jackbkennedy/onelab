@@ -5,13 +5,13 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="onelab",
+    version="0.1",
     author="Jack Kennedy",
     author_email="jackbkennedy@gmail.com",
     description="A python package to use gmsh and ONELAB via their original python APIs",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/jackbkennedy/onelab",
-    download_url = 'https://github.com/jackbkennedy/onelab/releases/tag/v0.1',
     packages=setuptools.find_packages(),
     license="GPL",
     classifiers=[
