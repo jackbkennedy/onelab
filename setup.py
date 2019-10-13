@@ -13,9 +13,9 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/jackbkennedy/onelab",
     packages=setuptools.find_packages(),
+    license="GPL",
     classifiers=[
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: GLP",
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.6',
