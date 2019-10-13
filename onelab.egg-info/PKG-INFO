@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
-Name: onelab-jackbkennedy
-Version: 0.0.1
+Name: onelab
+Version: 0.0.0
 Summary: A python package to use gmsh and ONELAB via their original python APIs
 Home-page: https://github.com/jackbkennedy/onelab
 Author: Jack Kennedy
