@@ -5,12 +5,11 @@ Summary: A python package to use gmsh and ONELAB via their original python APIs
 Home-page: https://github.com/jackbkennedy/onelab
 Author: Jack Kennedy
 Author-email: jackbkennedy@gmail.com
-License: UNKNOWN
-Description: 
-        
+License: GLP
+Description:
+
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
-Classifier: License :: OSI Approved :: GLP
 Classifier: Operating System :: OS Independent
 Requires-Python: >=3.6
 Description-Content-Type: text/markdown
