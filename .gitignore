@@ -8,7 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-build/
+build/lib/onelab
 develop-eggs/
 dist/
 downloads/
