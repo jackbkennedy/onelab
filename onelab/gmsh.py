@@ -2520,19 +2520,22 @@ class model:
                     ierr.value)
 
         @staticmethod
-        def classifySurfaces(angle, boundary=True, forReparametrization=False):
+        def classifySurfaces(angle, boundary=True, forReparametrization=False, curveAngle=pi):
             """
             Classify ("color") the surface mesh based on the angle threshold `angle'
             (in radians), and create new discrete surfaces, curves and points
             accordingly. If `boundary' is set, also create discrete curves on the
             boundary if the surface is open. If `forReparametrization' is set, create
-            edges and surfaces that can be reparametrized using a single map.
+            edges and surfaces that can be reparametrized using a single map. If
+            `curveAngle' is less than Pi, also force curves to be split according to
+            `curveAngle'.
             """
             ierr = c_int()
             lib.gmshModelMeshClassifySurfaces(
                 c_double(angle),
                 c_int(bool(boundary)),
                 c_int(bool(forReparametrization)),
+                c_double(curveAngle),
                 byref(ierr))
             if ierr.value != 0:
                 raise ValueError(
@@ -2908,6 +2911,52 @@ class model:
             if ierr.value != 0:
                 raise ValueError(
                     "gmshModelGeoAddBezier returned non-zero error code: ",
+                    ierr.value)
+            return api__result__
+
+        @staticmethod
+        def addCompoundSpline(curveTags, numIntervals=5, tag=-1):
+            """
+            Add a spline (Catmull-Rom) going through points sampling the curves in
+            `curveTags'. The density of sampling points on each curve is governed by
+            `numIntervals'. If `tag' is positive, set the tag explicitly; otherwise a
+            new tag is selected automatically. Return the tag of the spline.
+
+            Return an integer value.
+            """
+            api_curveTags_, api_curveTags_n_ = _ivectorint(curveTags)
+            ierr = c_int()
+            api__result__ = lib.gmshModelGeoAddCompoundSpline(
+                api_curveTags_, api_curveTags_n_,
+                c_int(numIntervals),
+                c_int(tag),
+                byref(ierr))
+            if ierr.value != 0:
+                raise ValueError(
+                    "gmshModelGeoAddCompoundSpline returned non-zero error code: ",
+                    ierr.value)
+            return api__result__
+
+        @staticmethod
+        def addCompoundBSpline(curveTags, numIntervals=20, tag=-1):
+            """
+            Add a b-spline with control points sampling the curves in `curveTags'. The
+            density of sampling points on each curve is governed by `numIntervals'. If
+            `tag' is positive, set the tag explicitly; otherwise a new tag is selected
+            automatically. Return the tag of the b-spline.
+
+            Return an integer value.
+            """
+            api_curveTags_, api_curveTags_n_ = _ivectorint(curveTags)
+            ierr = c_int()
+            api__result__ = lib.gmshModelGeoAddCompoundBSpline(
+                api_curveTags_, api_curveTags_n_,
+                c_int(numIntervals),
+                c_int(tag),
+                byref(ierr))
+            if ierr.value != 0:
+                raise ValueError(
+                    "gmshModelGeoAddCompoundBSpline returned non-zero error code: ",
                     ierr.value)
             return api__result__
 
@@ -5470,3 +5519,4 @@ class logger:
                 "gmshLoggerCputime returned non-zero error code: ",
                 ierr.value)
         return api__result__
+
