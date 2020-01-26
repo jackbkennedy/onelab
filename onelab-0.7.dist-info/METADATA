@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: onelab
+Version: 0.7
+Summary: A python package to use gmsh and ONELAB via their original python APIs
+Home-page: https://github.com/jackbkennedy/onelab
+Author: Jack Kennedy
+Author-email: jackbkennedy@gmail.com
+License: GPL
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pandas
+
+# Welcome
+
+This is the v.0 release of the "onelab" python package. It is a proof on concept package for easily interfacing with the [gmsh](http://gmsh.info/) and [onelab](http://onelab.info/) clients using python. A more detailed version of the documentation will follow along with examples of how the api can be used and various extensions to create a better user experience. Currently the package only contains the apis as distributed [HERE](https://gitlab.onelab.info/gmsh/gmsh).
+
+
